@@ -13,59 +13,86 @@
     <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="swagalldayerryday.css" />
+    <script type="text/javascript">
+        function switchTheme() {
+            var currentTheme = document.documentElement.getAttribute("data-theme");
+            var targetTheme = "light";
+
+            if (currentTheme === "light") {
+                targetTheme = "dark";
+            }
+
+            document.documentElement.setAttribute('data-theme', targetTheme)
+            document.querySelectorAll("a").forEach(x => x.setAttribute('data-theme', targetTheme));
+            localStorage.setItem('theme', targetTheme);
+        }
+
+        document.addEventListener("DOMContentLoaded", function (event) {
+            var toggle = document.getElementById("theme-toggle");
+
+            var storedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+            if (storedTheme) {
+                document.documentElement.setAttribute('data-theme', storedTheme);
+                document.querySelectorAll("a").forEach(x => x.setAttribute('data-theme', storedTheme));
+            }
+        });
+    </script>
 </head>
 
 <body>
-    <div>
-        <div class="header">
-            <img class="icon mainlogo" src="2825728_orbit_planets_solar system_icon.svg" />
-            <h1>Orreri</h1>
-        </div>
+    <label class="switch">
+        <input id="theme-toggle" type="checkbox" onclick="switchTheme()">
+        <span class="slider"></span>
+    </label>
 
-        <p>
-            Hello! My name is Clint and Orreri (pronounced like <a
-                href="https://en.wikipedia.org/wiki/Orrery">orrery</a>) is my infrastructure software engineering
-            contracting and consulting
-            company.
-        </p>
-        <p>
-            I specialize in <a href="https://github.com/clintjedwards/hclvet">developer tooling</a> and <a
-                href="https://github.com/clintjedwards/gofer">cloud-native infrastructure</a>; leveraging strong
-            programming skills (Golang/Rust) to implement solutions in both.
-        </p>
-        <p>
-            I've worked as devops/SRE/sysadmin/security in both large and small organizations and with some of the most
-            prestigious <a href="https://www.linkedin.com/in/clintjedwards/">companies in silicon valley</a>.
-            Throughout, I've tried to distill the core lessons I've picked up along the way into strategies that I
-            leverage to solve problems with scalable, maintainable solutions.
-        </p>
-        <p>
-            If you need help in any of the common infrastructure areas:
-        <ul>
-            <li>Logging</li>
-            <li>Monitoring</li>
-            <li>Container Orchestration (Kubernetes/Nomad)</li>
-            <li>CI/CD</li>
-            <li>Deployments</li>
-            <li>Oncall/Postmortem culture</li>
-            <li>Backups and Disaster Recovery</li>
-            <li>Reliability</li>
-            <li>Secret Management</li>
-        </ul>
-
-        I'd love to hear from you! Please reach out via email: <code>clint.edwards[at]orreri.dev</code>
-        <br /><br />
-        <i>Based in Brooklyn, NY.</i>
-        </p>
-
-        <ul>
-            <li><a href="https://github.com/clintjedwards">Github</a></li>
-            <li>
-                <a href="https://www.linkedin.com/in/clintjedwards">Linkedin</a>
-            </li>
-            <li><a href="https://keybase.io/cje3295">Keybase</a></li>
-        </ul>
+    <div class="header">
+        <img class="icon mainlogo" src="2825728_orbit_planets_solar system_icon.svg" />
+        <h1>Orreri</h1>
     </div>
+
+    <p>
+        Hello! My name is Clint and Orreri (pronounced like <a href="https://en.wikipedia.org/wiki/Orrery">orrery</a>)
+        is my infrastructure software engineering
+        contracting and consulting
+        company.
+    </p>
+    <p>
+        I specialize in <a href="https://github.com/clintjedwards/hclvet">developer tooling</a> and <a
+            href="https://github.com/clintjedwards/gofer">cloud-native infrastructure</a>; leveraging strong
+        programming skills (Golang/Rust) to implement solutions in both.
+    </p>
+    <p>
+        I've worked as devops/SRE/sysadmin/security in both large and small organizations and with some of the most
+        prestigious <a href="https://www.linkedin.com/in/clintjedwards/">companies in silicon valley</a>.
+        Throughout, I've tried to distill the core lessons I've picked up along the way into strategies that I
+        leverage to solve problems with scalable, maintainable solutions.
+    </p>
+    <p>
+        If you need help in any of the common infrastructure areas:
+    <ul>
+        <li>Logging</li>
+        <li>Monitoring</li>
+        <li>Container Orchestration (Kubernetes/Nomad)</li>
+        <li>CI/CD</li>
+        <li>Deployments</li>
+        <li>Oncall/Postmortem culture</li>
+        <li>Backups and Disaster Recovery</li>
+        <li>Reliability</li>
+        <li>Secret Management</li>
+    </ul>
+
+    I'd love to hear from you! Please reach out via email: <code>clint.edwards[at]orreri.dev</code>
+    <br /><br />
+    <i>Based in Brooklyn, NY.</i>
+    </p>
+
+    <ul>
+        <li><a href="https://github.com/clintjedwards">Github</a></li>
+        <li>
+            <a href="https://www.linkedin.com/in/clintjedwards">Linkedin</a>
+        </li>
+        <li><a href="https://keybase.io/cje3295">Keybase</a></li>
+    </ul>
 </body>
 
 </html>
